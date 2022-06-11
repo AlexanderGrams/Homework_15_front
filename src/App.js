@@ -1,12 +1,11 @@
 import './App.css';
-import logo from './media/book1.png'
+import Header from './components/Header';
 
 
 function App() {
   return (
-    <div>
-      <img src={logo} alt='logo'/>
-      <p>Hooly world!</p>
+    <div className='root'>
+      <Header />
     </div>
   );
 }

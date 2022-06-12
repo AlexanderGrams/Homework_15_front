@@ -5,13 +5,15 @@ import AuthorsBook from './components/AuthorsBook';
 import CopyToday from './components/CopyToday';
 import Customers from './components/Customers';
 import Header from './components/Header';
-import { getBooks, getPartners } from './requests';
+import Skills from './components/Skills';
+import { getBooks, getPartners, getSkills } from './requests';
 
 
 function App() {
 
   const [book, setBook] = useState([])
   const [partner, setPartner] = useState([])
+  const [skills, setSkills] = useState([])
 
   useEffect(()=>{
     getBooks(setBook)
@@ -21,6 +23,10 @@ function App() {
     getPartners(setPartner)
   },[])
 
+  useEffect(()=>{
+    getSkills(setSkills)
+  },[])
+
   return (
     <div className='root'>
       <Header />
@@ -28,6 +34,7 @@ function App() {
       <Author />
       <Customers customers={partner}/>
       <CopyToday />
+      <Skills skills={skills}/>
     </div>
   );
 }

@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Articles from './components/Articles';
 import Author from './components/Author';
 import AuthorsBook from './components/AuthorsBook';
 import CopyToday from './components/CopyToday';
 import Customers from './components/Customers';
 import Header from './components/Header';
 import Skills from './components/Skills';
-import { getBooks, getPartners, getSkills } from './requests';
+import { getArticles, getBooks, getPartners, getSkills } from './requests';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
   const [book, setBook] = useState([])
   const [partner, setPartner] = useState([])
   const [skills, setSkills] = useState([])
+  const [articles, setArticles] = useState([])
 
   useEffect(()=>{
     getBooks(setBook)
@@ -27,6 +29,10 @@ function App() {
     getSkills(setSkills)
   },[])
 
+  useEffect(()=>{
+    getArticles(setArticles)
+  },[])
+
   return (
     <div className='root'>
       <Header />
@@ -35,6 +41,7 @@ function App() {
       <Customers customers={partner}/>
       <CopyToday />
       <Skills skills={skills}/>
+      <Articles articles={articles}/>
     </div>
   );
 }

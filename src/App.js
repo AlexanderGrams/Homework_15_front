@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import Author from './components/Author';
 import AuthorsBook from './components/AuthorsBook';
 import Header from './components/Header';
 import { getBooks } from './requests';
@@ -17,6 +18,7 @@ function App() {
     <div className='root'>
       <Header />
       <AuthorsBook books={state}/>
+      <Author />
     </div>
   );
 }
